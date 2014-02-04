@@ -18,7 +18,12 @@
 # limitations under the License.
 #
 
-include Chef::DSL::IncludeRecipe
+# GP Edit 2/3/14 - added branch on chef version to support older versions
+if Chef::Version.new(Chef::VERSION) <= Chef::Version.new( "11.0.0" )
+  include Chef::Mixin::LanguageIncludeRecipe
+else 
+  include Chef::DSL::IncludeRecipe
+end 
 
 action :before_compile do
 

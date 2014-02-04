@@ -8,4 +8,4 @@ version          "2.0.1"
 depends          "nodejs"
 depends          "application"
 
-supports 'ubuntu', ">= 12.04"
+# supports 'ubuntu', ">= 12.04"

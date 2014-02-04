@@ -27,11 +27,11 @@ end
 
 action :before_compile do
 
-  include_recipe 'nodejs::install_from_source'
+  #include_recipe 'nodejs::install_from_source'
 
-  if new_resource.npm
-    include_recipe 'nodejs::npm'
-  end
+  #if new_resource.npm
+  #  include_recipe 'nodejs::npm'
+  #end
 
   unless new_resource.restart_command
     new_resource.restart_command do

@@ -7,6 +7,5 @@ version          "2.0.1"
 
 depends          "nodejs"
 depends          "application"
-depends          "chef_client"
 
 # supports 'ubuntu', ">= 12.04"

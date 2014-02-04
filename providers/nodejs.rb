@@ -75,24 +75,24 @@ end
 
 action :before_restart do
   # Added conditional to at least not break non upstart servers
-  if node.chef_client.init_style == 'upstart'
-    template "#{new_resource.application.name}.upstart.conf" do
-      path "/etc/init/#{new_resource.application.name}_nodejs.conf"
-      source new_resource.template ? new_resource.template : 'nodejs.upstart.conf.erb'
-      cookbook new_resource.template ? new_resource.cookbook_name.to_s : 'application_nodejs'
-      owner 'root'
-      group 'root'
-      mode '0644'
-      variables(
-        :user => new_resource.owner,
-        :group => new_resource.group,
-        :node_dir => node['nodejs']['dir'],
-        :app_dir => new_resource.release_path,
-        :entry => new_resource.entry_point,
-        :environment => new_resource.environment
-      )
-    end
-  end
+  # if node.chef_client.init_style == 'upstart'
+    # template "#{new_resource.application.name}.upstart.conf" do
+    #   path "/etc/init/#{new_resource.application.name}_nodejs.conf"
+    #   source new_resource.template ? new_resource.template : 'nodejs.upstart.conf.erb'
+    #   cookbook new_resource.template ? new_resource.cookbook_name.to_s : 'application_nodejs'
+    #   owner 'root'
+    #   group 'root'
+    #   mode '0644'
+    #   variables(
+    #     :user => new_resource.owner,
+    #     :group => new_resource.group,
+    #     :node_dir => node['nodejs']['dir'],
+    #     :app_dir => new_resource.release_path,
+    #     :entry => new_resource.entry_point,
+    #     :environment => new_resource.environment
+    #   )
+    # end
+  # end
 end
 
 action :after_restart do
